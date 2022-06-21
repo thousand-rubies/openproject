@@ -6,9 +6,9 @@ import {
   OnInit,
 } from '@angular/core';
 import {
-  FormArray,
-  FormControl,
-  FormGroup,
+  UntypedFormGroup,
+  UntypedFormArray,
+  UntypedFormControl,
 } from '@angular/forms';
 import { take } from 'rxjs/internal/operators/take';
 import { UIRouterGlobals } from '@uirouter/core';
@@ -49,15 +49,15 @@ interface IFullNotificationSettingsValue extends IToastSettingsValue {
 export class NotificationsSettingsPageComponent extends UntilDestroyedMixin implements OnInit {
   @Input() userId:string;
 
-  public form = new FormGroup({
+  public form = new UntypedFormGroup({
     assignee: new FormControl(false),
-    responsible: new FormControl(false),
-    workPackageCreated: new FormControl(false),
-    workPackageProcessed: new FormControl(false),
-    workPackageScheduled: new FormControl(false),
-    workPackagePrioritized: new FormControl(false),
-    workPackageCommented: new FormControl(false),
-    projectSettings: new FormArray([]),
+    responsible: new UntypedFormControl(false),
+    workPackageCreated: new UntypedFormControl(false),
+    workPackageProcessed: new UntypedFormControl(false),
+    workPackageScheduled: new UntypedFormControl(false),
+    workPackagePrioritized: new UntypedFormControl(false),
+    workPackageCommented: new UntypedFormControl(false),
+    projectSettings: new UntypedFormArray([]),
   });
 
   text = {
@@ -132,21 +132,21 @@ export class NotificationsSettingsPageComponent extends UntilDestroyedMixin impl
           return;
         }
 
-        const projectSettings = new FormArray([]);
+        const projectSettings = new UntypedFormArray([]);
         projectSettings.clear();
         settings
           .sort(
             (a, b):number => a._links.project.title!.localeCompare(b._links.project.title!),
           )
-          .forEach((setting) => projectSettings.push(new FormGroup({
-            project: new FormControl(setting._links.project),
-            assignee: new FormControl(setting.assignee),
+          .forEach((setting) => projectSettings.push(new UntypedFormGroup({
+            project: new UntypedFormControl(setting._links.project),
+            assignee: new UntypedFormControl(setting.assignee),
             responsible: new FormControl(setting.responsible),
-            workPackageCreated: new FormControl(setting.workPackageCreated),
-            workPackageProcessed: new FormControl(setting.workPackageProcessed),
-            workPackageScheduled: new FormControl(setting.workPackageScheduled),
-            workPackagePrioritized: new FormControl(setting.workPackagePrioritized),
-            workPackageCommented: new FormControl(setting.workPackageCommented),
+            workPackageCreated: new UntypedFormControl(setting.workPackageCreated),
+            workPackageProcessed: new UntypedFormControl(setting.workPackageProcessed),
+            workPackageScheduled: new UntypedFormControl(setting.workPackageScheduled),
+            workPackagePrioritized: new UntypedFormControl(setting.workPackagePrioritized),
+            workPackageCommented: new UntypedFormControl(setting.workPackageCommented),
           })));
 
         this.form.setControl('projectSettings', projectSettings);

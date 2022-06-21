@@ -135,7 +135,6 @@
       }
     }
   },
-  "defaultProject": "OpenProject",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "op",

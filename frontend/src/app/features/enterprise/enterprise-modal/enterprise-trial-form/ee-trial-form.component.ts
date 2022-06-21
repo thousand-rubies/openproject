@@ -27,7 +27,7 @@
 //++
 
 import { Component, ElementRef } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { I18nService } from 'core-app/core/i18n/i18n.service';
 import { EnterpriseTrialData, EnterpriseTrialService } from 'core-app/features/enterprise/enterprise-trial.service';
 import { CurrentUserService } from 'core-app/core/current-user/current-user.service';
@@ -86,7 +86,7 @@ export class EETrialFormComponent {
 
   constructor(readonly elementRef:ElementRef,
     readonly I18n:I18nService,
-    private formBuilder:FormBuilder,
+    private formBuilder:UntypedFormBuilder,
     readonly currentUserService:CurrentUserService,
     readonly configurationService:ConfigurationService,
     public eeTrialService:EnterpriseTrialService) {

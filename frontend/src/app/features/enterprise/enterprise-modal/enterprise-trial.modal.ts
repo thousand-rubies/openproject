@@ -30,7 +30,7 @@ import {
   AfterViewInit, ChangeDetectorRef, Component, ElementRef, Inject, Input, ViewChild,
 } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { OpModalComponent } from 'core-app/shared/components/modal/modal.component';
 import { OpModalLocalsToken } from 'core-app/shared/components/modal/modal.service';
 import { OpModalLocalsMap } from 'core-app/shared/components/modal/modal.types';
@@ -50,7 +50,7 @@ export class EnterpriseTrialModalComponent extends OpModalComponent implements A
 
   @Input() public opReferrer:string;
 
-  public trialForm:FormGroup;
+  public trialForm:UntypedFormGroup;
 
   // modal configuration
   public showClose = true;
@@ -89,7 +89,7 @@ export class EnterpriseTrialModalComponent extends OpModalComponent implements A
   // checks if form is valid and submits it
   public onSubmit() {
     if (this.trialForm.valid) {
-      this.trialForm.addControl('_type', new FormControl('enterprise-trial'));
+      this.trialForm.addControl('_type', new UntypedFormControl('enterprise-trial'));
       this.eeTrialService.sendForm(this.trialForm);
     }
   }
