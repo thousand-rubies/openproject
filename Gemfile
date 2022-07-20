@@ -267,6 +267,9 @@ group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
 
+  gem 'debase'
+  gem 'ruby-debug-ide'
+
   # Gems for living styleguide
   gem 'livingstyleguide', '~> 2.1.0'
   gem 'sassc-rails'
