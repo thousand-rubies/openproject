@@ -52,7 +52,7 @@ export class NotificationSettingsTableComponent {
   addProjectSettings(project:HalSourceLink):void {
     this.settings.push(new UntypedFormGroup({
       project: new UntypedFormControl(project),
-      assignee: new FormControl(false),
+      assignee: new UntypedFormControl(false),
       responsible: new UntypedFormControl(false),
       workPackageCreated: new UntypedFormControl(false),
       workPackageProcessed: new UntypedFormControl(false),
