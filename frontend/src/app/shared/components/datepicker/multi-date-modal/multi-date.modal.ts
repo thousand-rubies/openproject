@@ -79,6 +79,7 @@ import { WeekdayService } from 'core-app/core/days/weekday.service';
 import { FocusHelperService } from 'core-app/shared/directives/focus/focus-helper';
 import { DeviceService } from 'core-app/core/browser/device.service';
 import DateOption = flatpickr.Options.DateOption;
+import { DayResourceService } from 'core-app/core/state/days/day.service';
 
 export type DateKeys = 'start'|'end';
 export type DateFields = DateKeys|'duration';
@@ -121,6 +122,8 @@ export class MultiDateModalComponent extends OpModalComponent implements AfterVi
   @InjectField() deviceService:DeviceService;
 
   @InjectField() weekdayService:WeekdayService;
+
+  @InjectField() dayService:DayResourceService;
 
   @InjectField() focusHelper:FocusHelperService;
 
@@ -492,10 +495,10 @@ export class MultiDateModalComponent extends OpModalComponent implements AfterVi
           }
         },
         onDayCreate: (dObj:Date[], dStr:string, fp:flatpickr.Instance, dayElem:DayElement) => {
-          onDayCreate(
+          void onDayCreate(
             dayElem,
             this.ignoreNonWorkingDays,
-            this.weekdayService.isNonWorkingDay(dayElem.dateObj),
+            this.dayService.isNonWorkingDay$(dayElem.dateObj),
             minimalDate,
             this.isDayDisabled(dayElem, minimalDate),
           );

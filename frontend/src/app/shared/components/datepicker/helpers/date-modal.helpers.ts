@@ -29,6 +29,7 @@
 import { DatePicker } from 'core-app/shared/components/op-date-picker/datepicker';
 import { DateOption } from 'flatpickr/dist/types/options';
 import { DayElement } from 'flatpickr/dist/types/instance';
+import { Observable } from 'rxjs';
 
 /**
  * Map the date to the internal format,
@@ -98,13 +99,15 @@ export function setDates(dates:DateOption|DateOption[], datePicker:DatePicker, e
   datePicker.datepickerInstance.redraw();
 }
 
-export function onDayCreate(
+export async function onDayCreate(
   dayElem:DayElement,
   ignoreNonWorkingDays:boolean,
-  isNonWorkingDay:boolean,
+  isNonWorkingDay$:Observable<boolean>,
   minimalDate:Date|null|undefined,
   isDayDisabled:boolean,
-):void {
+):Promise<void> {
+  const isNonWorkingDay = await isNonWorkingDay$.toPromise();
+
   if (!ignoreNonWorkingDays && isNonWorkingDay) {
     dayElem.classList.add('flatpickr-non-working-day');
   }

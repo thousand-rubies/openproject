@@ -80,6 +80,9 @@ export class ApiV3Service {
   // /api/v3/documents
   public readonly documents = this.apiV3CollectionEndpoint('documents');
 
+  // /api/v3/file_links
+  public readonly file_links = this.apiV3CollectionEndpoint('file_links');
+
   // /api/v3/notifications
   public readonly notifications = this.apiV3CustomEndpoint(ApiV3NotificationsPaths);
 
@@ -115,6 +118,9 @@ export class ApiV3Service {
 
   // /api/v3/news
   public readonly news = this.apiV3CustomEndpoint(ApiV3NewsPaths);
+
+  // /api/v3/storages
+  public readonly storages = this.apiV3CollectionEndpoint('storages');
 
   // /api/v3/types
   public readonly types = this.apiV3CustomEndpoint(ApiV3TypesPaths);

@@ -72,6 +72,7 @@ import {
   validDate,
 } from 'core-app/shared/components/datepicker/helpers/date-modal.helpers';
 import { DeviceService } from 'core-app/core/browser/device.service';
+import { DayResourceService } from 'core-app/core/state/days/day.service';
 
 @Component({
   templateUrl: './single-date.modal.html',
@@ -95,6 +96,8 @@ export class SingleDateModalComponent extends OpModalComponent implements AfterV
   @InjectField() dateModalRelations:DateModalRelationsService;
 
   @InjectField() deviceService:DeviceService;
+
+  @InjectField() dayService:DayResourceService;
 
   @ViewChild('modalContainer') modalContainer:ElementRef<HTMLElement>;
 
@@ -284,10 +287,10 @@ export class SingleDateModalComponent extends OpModalComponent implements AfterV
           this.cdRef.detectChanges();
         },
         onDayCreate: (dObj:Date[], dStr:string, fp:flatpickr.Instance, dayElem:DayElement) => {
-          onDayCreate(
+          void onDayCreate(
             dayElem,
             this.ignoreNonWorkingDays,
-            this.datePickerInstance?.weekdaysService.isNonWorkingDay(dayElem.dateObj),
+            this.dayService.isNonWorkingDay$(dayElem.dateObj),
             minimalDate,
             this.dateModalScheduling.isDayDisabled(dayElem, minimalDate),
           );
