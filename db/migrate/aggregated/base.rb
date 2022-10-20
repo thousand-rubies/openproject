@@ -28,12 +28,14 @@
 
 module Aggregated; end
 
-class Aggregated::Base
-  def self.migrations
+module Aggregated::Base
+  module_function
+
+  def migrations
     raise NotImplementedError
   end
 
-  def self.normalized_migrations
+  def normalized_migrations
     migrations.split.map do |m|
       m.gsub(/_.*\z/, '').to_i
     end

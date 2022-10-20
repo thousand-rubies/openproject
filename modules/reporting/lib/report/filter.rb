@@ -28,20 +28,22 @@
 
 require 'set'
 
-class Report::Filter
-  def self.all
+module Report::Filter
+  module_function
+
+  def all
     @all ||= Set[]
   end
 
-  def self.reset!
+  def reset!
     @all = nil
   end
 
-  def self.all_grouped
+  def all_grouped
     all.group_by(&:applies_for).to_a.sort { |a, b| a.first.to_s <=> b.first.to_s }
   end
 
-  def self.from_hash
+  def from_hash
     raise NotImplementedError
   end
 end

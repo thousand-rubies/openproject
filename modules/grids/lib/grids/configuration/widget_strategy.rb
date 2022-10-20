@@ -27,35 +27,36 @@
 #++
 
 module Grids::Configuration
-  class WidgetStrategy
-    class << self
-      def after_destroy(proc = nil)
-        if proc
-          @after_destroy = proc
-        end
+  module WidgetStrategy
+    module_function
 
-        @after_destroy ||= -> {}
+
+    def after_destroy(proc = nil)
+      if proc
+        @after_destroy = proc
       end
 
-      def allowed(proc = nil)
-        if proc
-          @allowed = proc
-        end
+      @after_destroy ||= -> {}
+    end
 
-        @allowed ||= ->(_user, _project) { true }
+    def allowed(proc = nil)
+      if proc
+        @allowed = proc
       end
 
-      def allowed?(user, project)
-        allowed.(user, project)
+      @allowed ||= ->(_user, _project) { true }
+    end
+
+    def allowed?(user, project)
+      allowed.(user, project)
+    end
+
+    def options_representer(klass = nil)
+      if klass
+        @options_representer = klass
       end
 
-      def options_representer(klass = nil)
-        if klass
-          @options_representer = klass
-        end
-
-        @options_representer || '::API::V3::Grids::Widgets::DefaultOptionsRepresenter'
-      end
+      @options_representer || '::API::V3::Grids::Widgets::DefaultOptionsRepresenter'
     end
   end
 end

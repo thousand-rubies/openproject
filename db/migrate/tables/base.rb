@@ -28,24 +28,26 @@
 
 module Tables; end
 
-class Tables::Base
-  def self.create(migration)
+module Tables::Base
+  module_function
+
+  def create(migration)
     table(migration)
   end
 
-  def self.table_name
+  def table_name
     name.demodulize.underscore.to_s
   end
 
-  def self.id_options
+  def id_options
     { id: :integer }
   end
 
-  def self.create_table(migration, &block)
-    migration.create_table table_name, **id_options.merge(bulk: true), &block
+  def create_table(migration, &)
+    migration.create_table(table_name, **id_options.merge(bulk: true), &)
   end
 
-  def self.table(_migration)
+  def table(_migration)
     raise NotImplementedError
   end
 end
