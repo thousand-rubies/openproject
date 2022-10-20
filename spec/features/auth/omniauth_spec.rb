@@ -29,20 +29,6 @@
 require 'spec_helper'
 
 describe 'Omniauth authentication', type: :feature do
-  # Running the tests inside docker changes the hostname. To accommodate that we changed
-  # the Capybara app_host, however this change was not being reflected in the Rails host,
-  # causing the redirect checks to fail below.
-  def self.default_url_options
-    host =
-      if Capybara.app_host
-        Capybara.app_host.sub(/https?\/\//, "")
-      else
-        'http://www.example.com'
-      end
-
-    { host: }
-  end
-
   let(:user) do
     create(:user,
            force_password_change: false,
