@@ -170,7 +170,7 @@ end
 gem 'i18n-js', '~> 3.9.0'
 gem 'rails-i18n', '~> 7.0.0'
 
-gem 'sprockets', '~> 3.7.2' # lock sprockets below 4.0
+gem 'sprockets', '~> 4.2.0' # lock sprockets below 4.0
 gem 'sprockets-rails', '~> 3.4.2'
 
 gem 'puma', '~> 5.6'
