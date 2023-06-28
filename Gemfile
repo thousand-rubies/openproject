@@ -34,14 +34,14 @@ gem 'actionpack-xml_parser', '~> 2.0.0'
 gem 'activemodel-serializers-xml', '~> 1.0.1'
 gem 'activerecord-import', '~> 1.4.0'
 gem 'activerecord-session_store', '~> 2.0.0'
-gem 'rails', '~> 7.0', '>= 7.0.3.1'
-gem 'responders', '~> 3.0'
+gem 'rails', '~> 7.0', '>= 7.0.5.1'
+gem 'responders', '~> 3.1', '>= 3.1.0'
 
 gem 'ffi', '~> 1.15'
 
 gem 'rdoc', '>= 2.4.2'
 
-gem 'doorkeeper', '~> 5.5.0'
+gem 'doorkeeper', '~> 5.6.0'
 # Maintain our own omniauth due to relative URL root issues
 # see upstream PR: https://github.com/omniauth/omniauth/pull/903
 gem 'omniauth', git: 'https://github.com/opf/omniauth', ref: 'fe862f986b2e846e291784d2caa3d90a658c67f0'
@@ -168,7 +168,7 @@ group :production do
 end
 
 gem 'i18n-js', '~> 3.9.0'
-gem 'rails-i18n', '~> 7.0.0'
+gem 'rails-i18n', '~> 7.0.6'
 
 gem 'sprockets', '~> 3.7.2' # lock sprockets below 4.0
 gem 'sprockets-rails', '~> 3.4.2'
@@ -201,7 +201,7 @@ gem 'validate_url'
 
 # Sentry error reporting
 gem "sentry-delayed_job", '~> 5.5.0'
-gem "sentry-rails", '~> 5.5.0'
+gem "sentry-rails", "~> 5.6.0"
 gem "sentry-ruby", '~> 5.5.0'
 
 # Appsignal integration
@@ -219,7 +219,7 @@ group :test do
   gem 'rack_session_access'
   gem 'rspec', '~> 3.11.0'
   # also add to development group, so "spec" rake task gets loaded
-  gem 'rspec-rails', '~> 6.0.0', group: :development
+  gem 'rspec-rails', '~> 6.0.2', group: :development
 
   # Retry failures within the same environment
   gem 'retriable', '~> 3.1.1'
