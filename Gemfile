@@ -34,7 +34,7 @@ gem 'actionpack-xml_parser', '~> 2.0.0'
 gem 'activemodel-serializers-xml', '~> 1.0.1'
 gem 'activerecord-import', '~> 1.4.0'
 gem 'activerecord-session_store', '~> 2.0.0'
-gem 'rails', '~> 7.0', '>= 7.0.3.1'
+gem 'rails', '~> 7.1', '>= 7.1.0'
 gem 'responders', '~> 3.0'
 
 gem 'ffi', '~> 1.15'
@@ -56,7 +56,7 @@ gem 'friendly_id', '~> 5.4.0'
 
 gem 'acts_as_list', '~> 1.0.1'
 gem 'acts_as_tree', '~> 2.9.0'
-gem 'awesome_nested_set', '~> 3.5.0'
+gem 'awesome_nested_set', '~> 3.6.0'
 gem 'closure_tree', '~> 7.4.0'
 gem 'rubytree', '~> 2.0.0'
 # Only used in down migrations now.
@@ -157,7 +157,7 @@ gem 'matrix', '~> 0.4.2'
 gem 'cells-erb', '~> 0.1.0'
 gem 'cells-rails', '~> 0.1.4'
 
-gem 'meta-tags', '~> 2.18.0'
+gem 'meta-tags', '~> 2.19.0'
 
 gem "paper_trail", "~> 12.3"
 
