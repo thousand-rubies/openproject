@@ -276,7 +276,7 @@ group :development, :test do
   # Require factory_bot for usage with openproject plugins testing
   gem 'factory_bot', '~> 6.2.0'
   # require factory_bot_rails for convenience in core development
-  gem 'factory_bot_rails', '~> 6.2.0'
+  gem 'factory_bot_rails', '~> 6.3.0'
 
   # Tracing and profiling gems
   gem 'flamegraph', require: false
