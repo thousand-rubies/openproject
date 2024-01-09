@@ -173,9 +173,9 @@ gem 'rails-i18n', '~> 7.0.0'
 gem 'sprockets', '~> 3.7.2' # lock sprockets below 4.0
 gem 'sprockets-rails', '~> 3.4.2'
 
-gem 'puma', '~> 5.6'
+gem 'puma', '~> 5.6', '>= 5.6.8'
 gem 'rack-timeout', '~> 0.6.3', require: "rack/timeout/base"
-gem 'puma-plugin-statsd', '~> 2.0'
+gem 'puma-plugin-statsd', '~> 2.3', '>= 2.3.0'
 
 gem 'nokogiri', '~> 1.13.9'
 
