@@ -233,14 +233,14 @@ group :test do
 
   gem 'capybara', '~> 3.37.0'
   gem 'capybara-screenshot', '~> 1.0.17'
-  gem 'selenium-webdriver', '~> 4.0'
-  gem 'webdrivers', '~> 5.2.0'
+  gem 'selenium-webdriver', '~> 4.6', '>= 4.6.0'
+  gem 'webdrivers', '~> 5.3.0'
 
   gem 'fuubar', '~> 2.5.0'
   gem 'timecop', '~> 0.9.0'
 
   # Mock backend requests (for ruby tests)
-  gem 'webmock', '~> 3.12', require: false
+  gem 'webmock', '~> 3.19', '>= 3.19.0', require: false
 
   # Mock selenium requests through proxy (for feature tests)
   gem 'puffing-billy', '~> 3.0.0'
@@ -290,16 +290,16 @@ group :development, :test do
   gem 'pry-stack_explorer', '~> 0.6.0'
 
   # ruby linting
-  gem 'rubocop', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec', require: false
+  gem 'rubocop', '>= 1.37.0', require: false
+  gem 'rubocop-rails', '>= 2.17.0', require: false
+  gem 'rubocop-rspec', '>= 2.14.0', require: false
 
   # git hooks manager
   gem 'lefthook', require: false
 
   # Brakeman scanner
   gem 'brakeman', '~> 5.3.0'
-  gem 'danger-brakeman'
+  gem 'danger-brakeman', '>= 0.0.3'
 end
 
 gem 'bootsnap', '~> 1.13.0', require: false
