@@ -291,8 +291,8 @@ group :development, :test do
 
   # ruby linting
   gem 'rubocop', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec', require: false
+  gem 'rubocop-rails', '>= 2.30.0', require: false
+  gem 'rubocop-rspec', '>= 3.5.0', require: false
 
   # git hooks manager
   gem 'lefthook', require: false
@@ -305,7 +305,7 @@ end
 gem 'bootsnap', '~> 1.13.0', require: false
 
 # API gems
-gem 'grape', '~> 1.6.0'
+gem 'grape', '~> 2.1.0'
 gem 'grape_logging', '~> 1.8.4'
 gem 'roar', '~> 1.1.0'
 
