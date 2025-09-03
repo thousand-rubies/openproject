@@ -124,7 +124,7 @@
     "cdk-drag-scroll": "^0.0.6",
     "chart.js": "2.9.4",
     "chartjs-plugin-datalabels": "^0.6.0",
-    "codemirror": "^5.62.0",
+    "codemirror": "^6.0.0",
     "copy-text-to-clipboard": "^3.0.0",
     "core-js": "^3.2.1",
     "crossvent": "^1.5.4",
