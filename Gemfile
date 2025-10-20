@@ -189,7 +189,7 @@ gem 'aws-sdk-s3', '~> 1.91'
 
 gem 'openproject-token', '~> 2.2.0'
 
-gem 'plaintext', '~> 0.3.2'
+gem 'plaintext', '~> 0.3.5'
 
 gem 'rest-client', '~> 2.0'
 
